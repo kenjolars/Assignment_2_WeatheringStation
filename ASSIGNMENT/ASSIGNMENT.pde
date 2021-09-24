@@ -1,4 +1,4 @@
-PImage img;
+//PImage img;
 float scale = 1;
 float xPan = 400;
 float yPan = 300;
@@ -7,7 +7,9 @@ boolean zoomOut = false;
 float zoomSpeed = 1.05;
 
 void setup(){
-  size(800,700,P2D);
+  size(1600,900,P2D);
+  background(135,206,235);
+  noStroke();
 }
 
 void draw(){
@@ -15,9 +17,10 @@ void draw(){
   scale(scale);
   //translate(-xPan,-yPan);
   translate(-width/100, -height/100);
-  background(255);
-  img = loadImage("australia.png");
-  image(img, 0, 0, width/1, height/1);
+  fill(126,200,80);
+  rect(0,600,1650,350);
+  //img = loadImage("australia.png");
+  //image(img, 0, 0, width/1, height/1);
   if(zoomIn){
     scale *= zoomSpeed;
   }
