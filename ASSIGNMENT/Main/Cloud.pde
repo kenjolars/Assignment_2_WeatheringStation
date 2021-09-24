@@ -1,20 +1,33 @@
-class Cloud {
+public class Cloud {
   float x;
+  
   float y;
-
   
   PImage cloud;
   
-  Cloud(float tempX, float tempY){
-    x = tempX;
-    y = tempY;
+  Cloud(){
+    cloud = loadImage("Cloud.png");
+    x = random(-100,1400);
+    y = random(5,250);
+    
 
   }
   
   void display() {
-    stroke(0);
-    fill(0);
+    //move(speed);
     imageMode(CENTER);
     image(cloud,x,y);
+    if(x > 1700) {
+      x = -100;
+    }
+    
+      
+    //image(cloud,random(100,1500),random(250));
+    //noLoop();
+  }
+  
+  void move(float speed){
+    //y += 100;
+    x += speed/50;
   }
 }
