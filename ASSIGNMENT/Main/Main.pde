@@ -7,6 +7,7 @@ Cloud[] clouds = new Cloud[10];
 
 void setup(){
   size(1600,900);
+  noStroke();
   cloud = loadImage("Cloud.png");
   
   windDirection = loadTable("Wind Direction.csv");
@@ -24,7 +25,9 @@ void draw(){
   }else{
     index = 0;
   }
-  background(0);
+  background(135,206,235);
+  fill(126,200,80);
+  rect(0,600,1650,350);
   for (int i = 0; i < clouds.length; i++) {
     clouds[i].display();
   }
