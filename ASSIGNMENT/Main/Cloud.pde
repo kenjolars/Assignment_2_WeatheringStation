@@ -17,8 +17,9 @@ public class Cloud {
     //move(speed);
     imageMode(CENTER);
     image(cloud,x,y);
-    if(x > 1700) {
-      x = -100;
+    if(x > 1800) {
+      x = -200;
+      x = random(x);
     }
     
       
