@@ -1,23 +1,23 @@
 PImage cloud;
-Table windDirection;
+Table windSpeed;
 int index = 0;
 float speed = 15;
 
-Drops d[];
+//Drops d[];
 
 Cloud[] clouds = new Cloud[10];
 
 void setup(){
   size(1600,900);
   noStroke();
-  d=new Drops[500];
-  for(int r = 0; r < 500; r++){
-    d[r] = new Drops();
-  }
+  //d=new Drops[500];
+  //for(int r = 0; r < 500; r++){
+    //d[r] = new Drops();
+  //}
   
   cloud = loadImage("Cloud.png");
   
-  windDirection = loadTable("Wind Direction.csv");
+  windSpeed = loadTable("Wind Direction.csv");
   
   for (int i = 0; i < clouds.length; i++) {
     clouds[i] = new Cloud();
@@ -26,8 +26,8 @@ void setup(){
 }
 
 void draw(){
-  if(index < windDirection.getRowCount()) {
-    speed = windDirection.getInt(index,1);
+  if(index < windSpeed.getRowCount()) {
+    speed = windSpeed.getInt(index,1);
     index++;
   }else{
     index = 0;
@@ -35,14 +35,13 @@ void draw(){
   background(135,206,235);
   fill(126,200,80);
   rect(0,600,1650,350);
-  for(int r = 0; r < 500; r++){
-    
-      if(d[r].y>d[r].endPos){
-        d[r].end();
-      }
-      else
-        d[r].display();   
-  } 
+  //for(int r = 0; r < 500; r++){
+  //    if(d[r].y>d[r].endPos){
+  //      d[r].end();
+  //    }else{
+  //      d[r].display();   
+  //    }
+  //} 
   for (int i = 0; i < clouds.length; i++) {
     clouds[i].display();
   }
