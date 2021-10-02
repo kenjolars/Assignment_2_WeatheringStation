@@ -17,7 +17,7 @@ void setup(){
   
   cloud = loadImage("Cloud.png");
   
-  windSpeed = loadTable("Wind Direction.csv");
+  windSpeed = loadTable("Inst. Wind Speed.csv");
   
   for (int i = 0; i < clouds.length; i++) {
     clouds[i] = new Cloud();

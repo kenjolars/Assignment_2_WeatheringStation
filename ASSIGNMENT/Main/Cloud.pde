@@ -29,6 +29,6 @@ public class Cloud {
   
   void move(float speed){
     //y += 100;
-    x += speed/50;
+    x += speed/2;
   }
 }
