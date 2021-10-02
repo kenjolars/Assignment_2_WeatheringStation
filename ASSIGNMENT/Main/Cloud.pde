@@ -3,7 +3,12 @@ public class Cloud {
   
   float y;
   
+  //float red;
+  //float blue;
+  //float green;
+  
   PImage cloud;
+  
   
   Cloud(){
     cloud = loadImage("Cloud.png");
@@ -29,6 +34,15 @@ public class Cloud {
   
   void move(float speed){
     //y += 100;
-    x += speed/2;
+    x += speed;
+  }
+  
+  void air(float temp){
+    image(cloud,x,y);
+    tint(temp*10,temp*125);
+    //red = temp*100;
+    //blue = temp*20;
+    //green = temp*0;
+    //tint(red, blue, green);
   }
 }

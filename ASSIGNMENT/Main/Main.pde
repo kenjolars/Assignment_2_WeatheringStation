@@ -1,7 +1,10 @@
 PImage cloud;
 Table windSpeed;
-int index = 0;
-float speed = 15;
+Table airTemp;
+int indexWind = 0;
+int indexAir = 0;
+float temp;
+float speed;
 
 //Drops d[];
 
@@ -23,14 +26,26 @@ void setup(){
     clouds[i] = new Cloud();
   }
   
+  airTemp = loadTable("Air Temperature.csv");
+  
+  for (int i = 0; i < clouds.length; i++) {
+    clouds[i] = new Cloud();
+  }
+  
 }
 
 void draw(){
-  if(index < windSpeed.getRowCount()) {
-    speed = windSpeed.getInt(index,1);
-    index++;
+  if(indexWind < windSpeed.getRowCount()) {
+    speed = windSpeed.getInt(indexWind,1);
+    indexWind++;
   }else{
-    index = 0;
+    indexWind = 0;
+  }
+  if(indexAir < airTemp.getRowCount()) {
+    temp = airTemp.getInt(indexAir,1);
+    indexAir++;
+  }else{
+    indexAir = 0;
   }
   background(135,206,235);
   fill(126,200,80);
@@ -42,11 +57,14 @@ void draw(){
   //      d[r].display();   
   //    }
   //} 
+  //for (int i = 0; i < clouds.length; i++) {
+  //  clouds[i].display();
+  //}
   for (int i = 0; i < clouds.length; i++) {
     clouds[i].display();
-  }
-  for (int i = 0; i < clouds.length; i++) {
     clouds[i].move(speed);
+    clouds[i].air(temp);
   }
-  println(speed);
+  //println(speed);
+  //println(temp);
 }
